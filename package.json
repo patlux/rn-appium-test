@@ -4,11 +4,14 @@
   "private": true,
   "scripts": {
     "android": "react-native run-android",
+    "android-release": "react-native run-android --variant release",
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest -c jest.config.js",
     "test-e2e": "jest -c jest.config.e2e.js",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "build-android": "cd android && ./gradlew assembleRelease",
+    "install-android": "adb install ./android/app/build/outputs/apk/release/app-release.apk"
   },
   "dependencies": {
     "react": "16.13.1",

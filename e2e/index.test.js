@@ -6,7 +6,7 @@ const opts: RemoteOptions = {
   capabilities: {
     platformName: 'Android',
     app:
-      './android/app/build/outputs/apk/debug/app-debug.apk',
+      './android/app/build/outputs/apk/release/app-release.apk',
     appPackage: 'de.patwoz.rnappiumtest',
     appActivity: 'de.patwoz.rnappiumtest.MainActivity',
     automationName: 'UiAutomator2',
