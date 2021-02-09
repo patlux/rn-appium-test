@@ -1,4 +1,4 @@
-package com.rnappiumtest;
+package de.patwoz.rnappiumtest;
 
 import com.facebook.react.ReactActivity;
 
