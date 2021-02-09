@@ -1,0 +1,32 @@
+name: e2e 
+
+on: push
+
+jobs:
+  build-release:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: bahmutov/npm-install@v1
+    - name: build release apk
+      run: npm run build-android
+    - name: Upload apk 
+      uses: actions/upload-artifact@v2
+      with:
+        name: app-release.apk
+        path: android/app/build/outputs/apk/release/app-release.apk
+  
+  test-e2e:
+    runs-on: macos-latest
+    needs: build-release
+    steps:
+    - uses: actions/checkout@v2
+    - uses: bahmutov/npm-install@v1
+    - uses: actions/download-artifact@v2
+      with:
+        name: app-release.apk 
+    - name: run emulator 
+      uses: reactivecircus/android-emulator-runner@v2
+      with:
+        api-level: 29
+        script: npm run test-e2e
