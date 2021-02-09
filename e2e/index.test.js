@@ -5,8 +5,7 @@ const opts: RemoteOptions = {
   port: 4723,
   capabilities: {
     platformName: 'Android',
-    app:
-      './android/app/build/outputs/apk/release/app-release.apk',
+    app: './android/app/build/outputs/apk/release/app-release.apk',
     appPackage: 'de.patwoz.rnappiumtest',
     appActivity: 'de.patwoz.rnappiumtest.MainActivity',
     automationName: 'UiAutomator2',
@@ -28,7 +27,7 @@ export function query(client, queryStr) {
   return client.$(queryStr);
 }
 
-export function queryByText(client, text){
+export function queryByText(client, text) {
   return query(client, `//*[contains(@text,"${text}")]`);
 }
 
@@ -43,6 +42,6 @@ export async function waitFor(getElement) {
 }
 
 test('Should display welcome page', async () => {
-  const elWelcome = await waitFor(() => queryByText(client, "Welcome to React"));
+  const elWelcome = await waitFor(() => queryByText(client, 'Welcome to React'));
   expect(elWelcome).not.toBeNull();
 });
