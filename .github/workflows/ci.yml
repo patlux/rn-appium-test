@@ -3,11 +3,10 @@ name: CI
 on: push
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Install modules
-      run: npm ci 
+    - uses: bahmutov/npm-install@v1
     - name: Run tests
       run: npm run test
