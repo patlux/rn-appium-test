@@ -25,6 +25,8 @@ jobs:
     - uses: actions/download-artifact@v2
       with:
         name: app-release.apk 
+    - name: Display structure of downloaded files
+      run: ls -R
     - name: run Appium server
       run: npx appium > /dev/null 2>&1 &
     - name: run emulator 
