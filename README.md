@@ -1,5 +1,7 @@
 # rn-appium-test
 
+![CI](https://github.com/patlux/rn-appium-test/workflows/CI/badge.svg) ![e2e](https://github.com/patlux/rn-appium-test/workflows/e2e/badge.svg)
+
 ## Requirements
 
 - [node](https://nodejs.org/en/)
