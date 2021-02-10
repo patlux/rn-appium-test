@@ -1,6 +1,6 @@
 import * as wdio from 'webdriverio';
 
-const opts: RemoteOptions = {
+const opts = {
   path: '/wd/hub',
   port: 4723,
   capabilities: {
@@ -19,11 +19,7 @@ beforeAll(async () => {
   client = await wdio.remote(opts);
 });
 
-afterAll(async () => {
-  if (client) {
-    await client.deleteSession();
-  }
-});
+afterAll(() => client.deleteSession());
 
 export function query(client, queryStr) {
   return client.$(queryStr);
