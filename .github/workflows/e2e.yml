@@ -26,8 +26,8 @@ jobs:
       with:
         name: app-release.apk 
         path: android/app/build/outputs/apk/release/
-    - name: Display structure of downloaded files
-      run: ls -R
+    - name: run Appium doctor
+      run: npx appium-doctor
     - name: run Appium server
       run: npx appium > /dev/null 2>&1 &
     - name: run emulator 
