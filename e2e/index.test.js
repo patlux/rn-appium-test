@@ -13,13 +13,17 @@ const opts: RemoteOptions = {
   },
 };
 
-// let client;
-// 
-// beforeAll(async () => {
-//   client = await wdio.remote(opts);
-// });
-// 
-// afterAll(() => client.deleteSession());
+let client;
+
+beforeAll(async () => {
+  client = await wdio.remote(opts);
+});
+
+afterAll(async () => {
+  if (client) {
+    await client.deleteSession();
+  }
+});
 
 export function query(client, queryStr) {
   return client.$(queryStr);
@@ -40,8 +44,6 @@ export async function waitFor(getElement) {
 }
 
 test('Should display welcome page', async () => {
-  const client = await wdio.remote(opts);
   const elWelcome = await waitFor(() => queryByText(client, 'Welcome to React'));
   expect(elWelcome).not.toBeNull();
-  await client.deleteSession();
 });
