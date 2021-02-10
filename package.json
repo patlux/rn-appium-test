@@ -8,7 +8,7 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest -c jest.config.js",
-    "test-e2e": "jest -c jest.config.e2e.js",
+    "test-e2e": "jest -c jest.config.e2e.js --detectOpenHandles",
     "lint": "eslint .",
     "build-android": "cd android && ./gradlew assembleRelease",
     "install-android": "adb install ./android/app/build/outputs/apk/release/app-release.apk",
