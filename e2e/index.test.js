@@ -20,7 +20,9 @@ beforeAll(async () => {
 });
 
 afterAll(async () => {
-  await client.deleteSession();
+  if (client) {
+    await client.deleteSession();
+  }
 });
 
 export function query(client, queryStr) {
